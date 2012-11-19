@@ -171,11 +171,11 @@ static char UIScrollViewPullToRefreshView;
 }
 
 - (void)layoutSubviews {
-    CGFloat remainingWidth = self.superview.bounds.size.width-200;
+    CGFloat remainingWidth = self.superview.bounds.size.width-250;
     float position = 0.50;
     
     CGRect titleFrame = self.titleLabel.frame;
-    titleFrame.origin.x = ceil(remainingWidth*position+44);
+    titleFrame.origin.x = ceil(remainingWidth*position+24);
     self.titleLabel.frame = titleFrame;
     
     CGRect dateFrame = self.subtitleLabel.frame;
@@ -301,7 +301,8 @@ static char UIScrollViewPullToRefreshView;
 
 - (UILabel *)titleLabel {
     if(!_titleLabel) {
-        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 210, 20)];
+        _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, 250, 20)];
+		_titleLabel.textAlignment = UITextAlignmentCenter;
         _titleLabel.text = NSLocalizedString(@"Pull to refresh...",);
         _titleLabel.font = [UIFont boldSystemFontOfSize:14];
         _titleLabel.backgroundColor = [UIColor clearColor];
@@ -313,7 +314,7 @@ static char UIScrollViewPullToRefreshView;
 
 - (UILabel *)subtitleLabel {
     if(!_subtitleLabel) {
-        _subtitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 28, 210, 20)];
+        _subtitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 28, 250, 20)];
         _subtitleLabel.font = [UIFont systemFontOfSize:12];
         _subtitleLabel.backgroundColor = [UIColor clearColor];
         _subtitleLabel.textColor = textColor;
